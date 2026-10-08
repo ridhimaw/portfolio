@@ -116,6 +116,48 @@ radial-gradient(circle at 85% 70%,rgba(90,43,112,.17),transparent 28%),var(--ink
 .dual{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:start}
 .pane{border:1px solid var(--line);border-radius:12px;padding:32px;background:rgba(8,20,38,.4)}
 .pane .kicker{margin-bottom:14px}
+/* results strip */
+.results{padding-top:56px;padding-bottom:56px;background:linear-gradient(180deg,#061326,#0a1d36)}
+.results .kicker{margin-bottom:22px}
+.results-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.result.highlight-card{display:flex;flex-direction:column;gap:6px;padding:26px 24px 22px;border:1px solid var(--line);border-radius:12px}
+.result .r-num{font:600 58px/1 var(--serif);color:var(--gold2);margin-bottom:8px}
+.result .r-word{font-size:46px;line-height:1.1}
+.result .r-title{font:600 21px/1.2 var(--serif);color:#fff}
+.result .r-sub{font-size:13px;color:var(--muted)}
+.result .tap-note{margin-top:auto;padding-top:14px;font-size:11px;letter-spacing:.14em}
+@media(max-width:1000px){.results-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.results{padding-top:40px;padding-bottom:40px}.results-grid{gap:12px}.result.highlight-card{padding:18px 16px 16px}.result .r-num{font-size:38px;margin-bottom:4px}.result .r-word{font-size:30px}.result .r-title{font-size:16px}.result .r-sub{font-size:12px}.result .tap-note{font-size:10px;padding-top:10px}}
+/* news project */
+.news-feature{margin-top:36px;display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:32px;background:linear-gradient(135deg,rgba(11,31,55,.7),rgba(53,32,78,.45))}
+.news-feature h3{font:600 clamp(28px,3vw,38px)/1.05 var(--serif);margin:0 0 12px;color:var(--cream)}
+.news-feature p{color:var(--muted);margin:0 0 16px}
+.news-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.news-tags span{border:1px solid var(--line);border-radius:30px;padding:5px 12px;font-size:12px;color:var(--gold2)}
+.news-preview{border:1px solid var(--line);border-radius:12px;background:#040d1c;padding:18px 18px 8px;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+.news-preview .np-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2)}
+.np-live{display:inline-flex;align-items:center;gap:6px;color:#7fd8b0}
+.np-live:before{content:"";width:7px;height:7px;border-radius:50%;background:#7fd8b0}
+.np-row{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:12px 0;border-top:1px solid rgba(226,210,166,.15)}
+.np-tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;padding:3px 7px;background:rgba(217,189,122,.15);color:var(--gold2);white-space:nowrap}
+.np-line{height:8px;border-radius:4px;background:rgba(247,241,229,.22);margin:4px 0 7px}
+.np-line.short{width:60%;background:rgba(247,241,229,.12)}
+@media(max-width:900px){.news-feature{grid-template-columns:1fr;padding:24px}}
+/* games */
+.games{margin-bottom:40px}
+.games-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}
+.games-head h3{font:600 30px var(--serif);margin:0 0 6px}
+.games-head p{margin:0;color:var(--muted);max-width:560px}
+.game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.game-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(8,20,38,.55);color:inherit;text-decoration:none;transition:transform .25s,border-color .25s,box-shadow .25s}
+.game-card:hover,.game-card:focus-visible{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.game-card svg{display:block;width:100%;height:auto;aspect-ratio:16/10;background:#040d1c}
+.game-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.game-body h4{margin:0;font:600 24px var(--serif);color:var(--cream)}
+.game-body p{margin:0;font-size:14px;color:var(--muted);flex:1}
+.game-play{margin-top:8px;color:var(--gold2);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+@media(max-width:1100px){.game-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.game-grid{grid-template-columns:1fr}}
 .video{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#020b18;box-shadow:0 18px 60px rgba(0,0,0,.25);margin-top:22px}
 .video iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .video-caption{padding:14px 17px;font-size:12px}
@@ -244,6 +286,48 @@ radial-gradient(circle at 85% 70%,rgba(90,43,112,.17),transparent 28%),var(--ink
   </div>
 </header>
 
+<section class="results" id="highlights" aria-label="Highlights">
+  <div class="kicker">Some Highlights</div>
+  <div class="results-grid">
+    <button class="result highlight-card" type="button" data-title="Tech Transfers Led" data-label="03 · END TO END" data-copy="I led the technology transfer process end to end for three technologies in the disaster management domain, from evaluation and IP considerations through to licensing.
+
+I have also supported several other technology transfers and commercialization efforts across domains, including industrial design and engineering.">
+      <span class="r-num">03</span>
+      <span class="r-title">Tech transfers led end to end</span>
+      <span class="r-sub">Several others supported</span>
+      <span class="tap-note">View story →</span>
+    </button>
+    <button class="result highlight-card" type="button" data-title="Registered Indian Trademark Agent" data-label="INDIA · TRADEMARKS" data-copy="A registered Indian Trademark Agent, authorized to file and prosecute trademark applications in India.">
+      <span class="r-num r-word">TM</span>
+      <span class="r-title">Registered Indian Trademark Agent</span>
+      <span class="r-sub">Professional qualification</span>
+      <span class="tap-note">View detail →</span>
+    </button>
+    <button class="result highlight-card" type="button" data-title="Copyright Assignments" data-label="COPYRIGHT" data-copy="Managed copyright assignments, including for a film and media firm.">
+      <span class="r-num r-word">©</span>
+      <span class="r-title">Managed copyright assignments</span>
+      <span class="r-sub">Including film &amp; media</span>
+      <span class="tap-note">View detail →</span>
+    </button>
+    <button class="result highlight-card" type="button" data-title="Candidate RTTP" data-label="PROFESSIONAL DEVELOPMENT" data-copy="Candidate for Registered Technology Transfer Professional (RTTP), an international professional recognition for technology transfer and knowledge exchange practitioners.">
+      <span class="r-num r-word">RTTP</span>
+      <span class="r-title">Candidate RTTP</span>
+      <span class="r-sub">Registered Technology Transfer Professional</span>
+      <span class="tap-note">View detail →</span>
+    </button>
+  </div>
+  <div class="highlight-modal" id="highlightModal" aria-hidden="true">
+    <div class="highlight-backdrop" data-close-highlight></div>
+    <div class="highlight-dialog" role="dialog" aria-modal="true" aria-labelledby="highlightModalTitle">
+      <button class="modal-close" type="button" aria-label="Close" data-close-highlight>×</button>
+      <div class="kicker" id="highlightModalLabel"></div>
+      <h3 id="highlightModalTitle"></h3>
+      <p id="highlightModalCopy"></p>
+    </div>
+  </div>
+
+</section>
+
 <section class="section-dark" id="work">
   <h2 class="section-title">Things I've worked on</h2>
   <p class="section-intro">My work sits at the intersection of <b>IP, technology, and business development</b> — moving ideas from concept to protection, partnerships, and impact. Tap a card for a quick example.</p>
@@ -301,37 +385,26 @@ radial-gradient(circle at 85% 70%,rgba(90,43,112,.17),transparent 28%),var(--ink
     </article>
 
   </div>
+
+  <div class="news-feature">
+    <div>
+      <div class="kicker" style="margin-bottom:12px">SOMETHING I BUILT · LIVE PROJECT</div>
+      <h3>IP &amp; Tech Transfer Pulse</h3>
+      <p>A news site I built and curate that updates itself every day. It gathers the latest on patents, licensing, university spin-offs, innovation policy and technology transfer, with a dedicated India section, all from open, non-paywalled sources.</p>
+      <div class="news-tags"><span>Patents</span><span>Licensing</span><span>Tech Transfer</span><span>Policy</span><span>India</span></div>
+      <a class="btn primary" href="https://ridhimaw.github.io/ip-techtransfer-news/" target="_blank" rel="noopener">Read Today's Pulse ↗</a>
+    </div>
+    <a class="news-preview" href="https://ridhimaw.github.io/ip-techtransfer-news/" target="_blank" rel="noopener" aria-label="Open IP and Tech Transfer Pulse" style="text-decoration:none;display:block">
+      <div class="np-head"><span>Daily digest</span><span class="np-live">Auto-updated</span></div>
+      <div class="np-row"><span class="np-tag">Tech Transfer</span><div><div class="np-line"></div><div class="np-line short"></div></div></div>
+      <div class="np-row"><span class="np-tag">Patents</span><div><div class="np-line"></div><div class="np-line short"></div></div></div>
+      <div class="np-row"><span class="np-tag">India</span><div><div class="np-line"></div><div class="np-line short"></div></div></div>
+      <div class="np-row"><span class="np-tag">Licensing</span><div><div class="np-line"></div><div class="np-line short"></div></div></div>
+    </a>
+  </div>
 </section>
 
-<section class="highlights" id="highlights">
-  <h2 class="section-title" style="font-size:clamp(28px,3vw,38px);margin-bottom:4px">Some Highlights</h2>
-  <div class="strip highlights-grid">
-    <button class="strip-item highlight-card" type="button" data-title="Tech Transfers Led" data-label="03 · DISASTER MANAGEMENT" data-copy="I led the technology transfer process from start to finish for three technologies in the disaster management domain — from evaluation and IP considerations through to licensing.
-
-I have also supported the commercialization of technologies across other domains, including industrial design and engineering.">
-      <span class="num">03</span><span class="label">TECH TRANSFERS LED</span><p>Disaster management</p><span class="tap-note">View story →</span>
-    </button>
-    <button class="strip-item highlight-card" type="button" data-title="Indian Trademark Agent" data-label="INDIA · TRADEMARKS" data-copy="A registered Indian Trademark Agent, authorized to file trademark applications in India.">
-      <span class="num num-word">INDIA</span><span class="label">TRADEMARK AGENT</span><p>Registered professional qualification</p><span class="tap-note">View detail →</span>
-    </button>
-    <button class="strip-item highlight-card" type="button" data-title="Copyright Assignment" data-label="01 · FILM & MEDIA" data-copy="Managed a copyright assignment for a film and media firm.">
-      <span class="num">01</span><span class="label">COPYRIGHT ASSIGNMENT</span><p>Film & media</p><span class="tap-note">View detail →</span>
-    </button>
-    <button class="strip-item highlight-card" type="button" data-title="c-RTTP" data-label="PROFESSIONAL DEVELOPMENT" data-copy="Candidate — Registered Technology Transfer Professional (RTTP), an international professional recognition for technology transfer and knowledge exchange practitioners.">
-      <span class="num num-rtpp">c-RTTP</span><span class="label">CANDIDATE</span><p>Technology transfer professional pathway</p><span class="tap-note">View detail →</span>
-    </button>
-  </div>
-
-  <div class="highlight-modal" id="highlightModal" aria-hidden="true">
-    <div class="highlight-backdrop" data-close-highlight></div>
-    <div class="highlight-dialog" role="dialog" aria-modal="true" aria-labelledby="highlightModalTitle">
-      <button class="modal-close" type="button" aria-label="Close" data-close-highlight>×</button>
-      <div class="kicker" id="highlightModalLabel"></div>
-      <h3 id="highlightModalTitle"></h3>
-      <p id="highlightModalCopy"></p>
-    </div>
-  </div>
-
+<section class="highlights" id="curious">
   <div class="curious-head">
     <div>
       <div class="kicker">What I'm exploring now</div>
@@ -373,6 +446,109 @@ I have also supported the commercialization of technologies across other domains
   <div class="kicker">Creative Practice</div>
   <h2 class="section-title">Off the Clock</h2>
   <p class="section-intro">Different practices, same instinct — play, precision, and expression. One is a new curiosity; the other, years in the making.</p>
+  <div class="games">
+    <div class="games-head">
+      <div>
+        <div class="kicker" style="margin-bottom:12px">WITH PLAY · MINI ARCADE</div>
+        <h3>Games I Built</h3>
+        <p>Small browser games and a daily brain workout, made for fun. Quick to learn, free to play, and they work on phone or desktop.</p>
+      </div>
+      <a class="btn" href="https://ridhimaw.github.io/arcade/" target="_blank" rel="noopener">Visit the Arcade ↗</a>
+    </div>
+    <div class="game-grid">
+
+      <a class="game-card" href="https://ridhimaw.github.io/arcade/orbit-hop/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Orbit Hop game preview">
+          <defs><radialGradient id="ohBg" cx="50%" cy="50%" r="65%"><stop offset="0" stop-color="#1c1840"/><stop offset="1" stop-color="#090a1c"/></radialGradient></defs>
+          <rect width="320" height="200" fill="url(#ohBg)"/>
+          <circle cx="160" cy="104" r="40" fill="#1d1a44" stroke="#3b3a78" stroke-width="2.5"/>
+          <circle cx="160" cy="104" r="68" fill="none" stroke="#6a6fbf" stroke-width="2.5"/>
+          <circle cx="160" cy="36" r="15" fill="#5b6ea8" opacity=".45"/>
+          <circle cx="160" cy="36" r="9" fill="#d6ecff"/>
+          <path d="M107 69q2 9 10 11q-8 2-10 11q-2-9-10-11q8-2 10-11z" fill="#ffd36a"/>
+          <rect x="210" y="47" width="14" height="14" rx="1.5" fill="#f0566e" transform="rotate(28 217 54)"/>
+          <rect x="114" y="117" width="12" height="12" rx="1.5" fill="#f0566e" transform="rotate(12 120 123)"/>
+        </svg>
+        <div class="game-body">
+          <h4>Orbit Hop</h4>
+          <p>Circle around two rings. Tap to switch rings, grab the stars and dodge the red blocks.</p>
+          <span class="game-play">Play Orbit Hop →</span>
+        </div>
+      </a>
+
+      <a class="game-card" href="https://ridhimaw.github.io/arcade/skyline-stack/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Skyline Stack game preview">
+          <defs><linearGradient id="ssBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262a55"/><stop offset="1" stop-color="#4a2f68"/></linearGradient></defs>
+          <rect width="320" height="200" fill="url(#ssBg)"/>
+          <rect x="0" y="180" width="320" height="20" fill="#0b0f1d"/>
+          <rect x="107" y="153" width="114" height="27" fill="#78d39a"/>
+          <rect x="111" y="127" width="106" height="26" fill="#78d4c9"/>
+          <rect x="115" y="101" width="98" height="26" fill="#6aa9d6"/>
+          <rect x="121" y="75" width="88" height="26" fill="#6a78d6"/>
+          <rect x="78" y="34" width="88" height="25" fill="#a66ed6"/>
+        </svg>
+        <div class="game-body">
+          <h4>Skyline Stack</h4>
+          <p>Drop each sliding floor on top of the last one. Whatever hangs over gets cut off. How high can you build?</p>
+          <span class="game-play">Play Skyline Stack →</span>
+        </div>
+      </a>
+
+      <a class="game-card" href="https://ridhimaw.github.io/arcade/neon-dash/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Neon Dash game preview">
+          <defs>
+            <linearGradient id="ndSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#160a2e"/><stop offset="1" stop-color="#3a1555"/></linearGradient>
+            <linearGradient id="ndSun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#ff7aa8"/></linearGradient>
+            <clipPath id="ndClip"><rect width="320" height="150"/></clipPath>
+          </defs>
+          <rect width="320" height="200" fill="url(#ndSky)"/>
+          <g clip-path="url(#ndClip)">
+            <circle cx="231" cy="136" r="48" fill="url(#ndSun)"/>
+            <rect x="180" y="132" width="102" height="4" fill="#2a0f45"/>
+            <rect x="180" y="141" width="102" height="4" fill="#2a0f45"/>
+          </g>
+          <rect x="0" y="151" width="320" height="49" fill="#130828"/>
+          <path d="M0 150h320" stroke="#ff5fc0" stroke-width="2.5"/>
+          <rect x="154" y="117" width="23" height="33" fill="#1e0b36" stroke="#ff5fc0" stroke-width="2.5"/>
+          <rect x="237" y="126" width="31" height="24" fill="#1e0b36" stroke="#ff5fc0" stroke-width="2.5"/>
+          <rect x="68" y="101" width="23" height="23" fill="#8ff2ff" transform="rotate(4 79.5 112.5)"/>
+          <circle cx="111" cy="90" r="5.5" fill="#ffe27a"/>
+          <circle cx="131" cy="79" r="5.5" fill="#ffe27a"/>
+          <circle cx="151" cy="81" r="5.5" fill="#ffe27a"/>
+        </svg>
+        <div class="game-body">
+          <h4>Neon Dash</h4>
+          <p>An endless runner. Jump the blocks, tap twice to double-jump and collect coins for bonus points.</p>
+          <span class="game-play">Play Neon Dash →</span>
+        </div>
+      </a>
+
+
+      <a class="game-card" href="https://ridhimaw.github.io/arcade/brain-gym/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 320 200" role="img" aria-label="Brain Gym game preview">
+          <defs><radialGradient id="bgBg" cx="50%" cy="25%" r="80%"><stop offset="0" stop-color="#1b2c48"/><stop offset="1" stop-color="#0d1426"/></radialGradient></defs>
+          <rect width="320" height="200" fill="url(#bgBg)"/>
+          <g fill="#232a48">
+            <rect x="113" y="27" width="22" height="22" rx="4"/><rect x="165" y="27" width="22" height="22" rx="4"/><rect x="191" y="27" width="22" height="22" rx="4"/>
+            <rect x="113" y="53" width="22" height="22" rx="4"/><rect x="139" y="53" width="22" height="22" rx="4"/><rect x="191" y="53" width="22" height="22" rx="4"/>
+            <rect x="139" y="79" width="22" height="22" rx="4"/><rect x="165" y="79" width="22" height="22" rx="4"/><rect x="191" y="79" width="22" height="22" rx="4"/>
+            <rect x="113" y="105" width="22" height="22" rx="4"/><rect x="139" y="105" width="22" height="22" rx="4"/><rect x="165" y="105" width="22" height="22" rx="4"/>
+          </g>
+          <g fill="#2f5a5a"><rect x="139" y="27" width="22" height="22" rx="4"/><rect x="165" y="53" width="22" height="22" rx="4"/><rect x="191" y="105" width="22" height="22" rx="4"/></g>
+          <rect x="113" y="79" width="22" height="22" rx="4" fill="#67c8a8"/>
+          <text x="114" y="50" text-anchor="end" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="27" fill="#ec6461">BLUE</text>
+          <path d="M252 30l5.5 11.5 12.5 1.5-9.2 8.6 2.4 12.4-11.2-6.2-11.2 6.2 2.4-12.4-9.2-8.6 12.5-1.5z" fill="#ffd654"/>
+          <text x="249" y="110" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="46" fill="#f2a04c">7</text>
+        </svg>
+        <div class="game-body">
+          <h4>Brain Gym</h4>
+          <p>A 5-minute daily workout for speed, memory, focus and flexibility. Every exercise adapts to your level.</p>
+          <span class="game-play">Play Brain Gym →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
   <div class="dual">
     <div class="pane">
       <div class="kicker">WITH MACHINES · AI / CREATIVE EXPERIMENTS</div>
@@ -398,6 +574,7 @@ I have also supported the commercialization of technologies across other domains
       <div class="dance-tags"><span>Kuchipudi</span><span>Mohiniyattam</span><span>Bharatanatyam</span><span>Teaching</span></div>
     </div>
   </div>
+
 </section>
 
 <section class="section-light" id="about">
